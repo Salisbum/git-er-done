@@ -13,8 +13,9 @@ feature "User creates account" do
     fill_in "Password", with: "derpherp"
     fill_in "Password confirmation", with: "derpherp"
 
-    click_on "Sign Up"
+    click_on "Sign up"
 
-    current_path.should == new_user_registration_path
+    current_path.should == '/'
+    expect(page).to have_content("Logout")
   end
 end

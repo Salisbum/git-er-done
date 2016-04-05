@@ -100,6 +100,9 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    orderly (0.0.3)
+      capybara (>= 1.1)
+      rspec (>= 2.14)
     pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -135,6 +138,10 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
     rspec-core (3.4.4)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -206,6 +213,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  orderly
   pg
   pry
   rails (= 4.2.3)

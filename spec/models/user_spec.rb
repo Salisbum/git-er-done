@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     })
   end
 
-describe ".new" do
+  describe ".new" do
     it "should be an User object" do
       expect(user).to be_a(User)
     end

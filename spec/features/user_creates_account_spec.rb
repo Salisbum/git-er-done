@@ -14,5 +14,7 @@ feature "User creates account" do
     fill_in "Password confirmation", with: "derpherp"
 
     click_on "Sign Up"
+
+    current_path.should == new_user_registration_path
   end
 end

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:user) do
-    User.new({
-    email: "derpson@email.com",
-    password: "12345678"
-    })
+    User.new(
+      email: "derpson@email.com",
+      password: "12345678"
+    )
   end
 
   describe ".new" do

@@ -1,0 +1,28 @@
+<table>
+  <thead>
+    <tr>
+      <th>Thumbnail</th>
+      <th>Landmark</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @landmarks.each do |landmark| %>
+      <tr>
+        <td>
+          <%= image_tag("#{landmark.image}", height: '50', width: '50') %>
+        </td>
+        <td>
+          <%= link_to landmark.name, landmark_path(landmark) %>
+        </td>
+        <td>
+          <button type="button" name="button"></button>
+        </td>
+        <td>
+          <button type="button" name="button"></button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

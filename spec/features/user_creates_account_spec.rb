@@ -15,7 +15,6 @@ feature "User creates account" do
 
     click_on "Sign up"
 
-    current_path.should == '/'
     expect(page).to have_content("Logout")
   end
 end

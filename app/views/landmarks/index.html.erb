@@ -20,7 +20,7 @@
           <%= button_to "Edit", edit_landmark_path(landmark), class:"button", method:"get" %>
         </td>
         <td>
-          <button type="button" name="button"></button>
+          <%= button_to "Delete", landmark_path(landmark), class:"button", method:"delete" %>
         </td>
       </tr>
     <% end %>

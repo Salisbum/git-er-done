@@ -1,14 +1,14 @@
 <%= form_for(@landmark) do |f| %>
-  <%= f.label(:name, "Landmark Name") %>
+  <%= f.label(:name, "Landmark Name (required field)") %>
   <%= f.text_field :name %>
 
-  <%= f.label(:location, "Landmark Location") %>
+  <%= f.label(:location, "Landmark Location (required field)") %>
   <%= f.text_field :location %>
 
-  <%= f.label(:image, "Landmark Image URL") %>
+  <%= f.label(:image, "Landmark Image URL (required field)") %>
   <%= f.text_field :image %>
 
-  <%= f.label(:description, "Landmark Description") %>
+  <%= f.label(:description, "Landmark Description (required field)") %>
   <%= f.text_area :description %>
 
   <%= f.submit "Submit Landmark" %>

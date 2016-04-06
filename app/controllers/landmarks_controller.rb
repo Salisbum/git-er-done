@@ -37,6 +37,14 @@ class LandmarksController < ApplicationController
         redirect_to edit_landmark_path(@landmark)
       end
     end
+
+    def destroy
+      @landmark = Landmark.find(params[:id])
+      if @landmark.destroy
+        flash[:notice] = "Landmark Deleted Successfully"
+      end
+      redirect_to landmarks_path
+    end
   end
 
   private

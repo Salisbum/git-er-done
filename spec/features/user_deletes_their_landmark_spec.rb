@@ -15,6 +15,7 @@ feature "User deletes their landmark" do
 
     click_button "Delete"
 
+    expect(page).to have_content "Landmark Deleted Successfully"
     expect(page).to_not have_content grand_canyon.name
   end
 end

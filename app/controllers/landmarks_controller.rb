@@ -1,6 +1,10 @@
 class LandmarksController < ApplicationController
   def index
-    @landmarks = Landmark.order(:name)
+    if params[:search]
+      @landmarks = Landmark.search(params[:search])
+    else
+      @landmarks = Landmark.order(:name)
+    end
   end
 
   def show

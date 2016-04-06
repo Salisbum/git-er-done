@@ -17,7 +17,7 @@ feature "user sees landmark show page" do
 
     expect(page).to have_content statue_of_liberty.name
     expect(page).to have_content statue_of_liberty.location
-    page.should have_selector ("img[scr$='#{statue_of_liberty.image}']")
+    page.should have_selector ("img[src$='#{statue_of_liberty.image}']")
     expect(page).to have_content statue_of_liberty.description
   end
 end

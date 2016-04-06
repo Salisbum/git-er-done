@@ -29,7 +29,7 @@ feature "User edits an existing landmark" do
     expect(page).to have_content "A colossal neoclassical sculpture on Liberty Island"
   end
 
-  scenario "User unsucessfully edits a landmark" do
+  scenario "User unsuccessfully edits a landmark" do
 
     grand_canyon = Landmark.create(
       name: "Grand Canyon",

@@ -1,6 +1,5 @@
 class LandmarksController < ApplicationController
   def index
-    @landmarks = Landmark.all
     if params[:search]
       @landmarks = Landmark.search(params[:search])
     else

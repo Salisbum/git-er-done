@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Landmark, type: :model do
+RSpec.describe Landmark do
   let(:landmark) do
     Landmark.new(
       name: "Statue of Liberty",

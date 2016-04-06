@@ -21,6 +21,22 @@ class LandmarksController < ApplicationController
       What are you stupid?!"
       render :new
     end
+
+    def edit
+      @landmark = Landmark.find(params[:id])
+    end
+
+    def update
+      @landmark = Landmark.find(params[:id])
+      @landmark.update(landmark_params)
+      if @landmark.save
+        flash[:notice] = "Landmark updated successfully!"
+        redirect_to landmark_path(@landmark)
+      else
+        flash[:error] = "Update unsucessful. No changes were made."
+        redirect_to edit_landmark_path(@landmark)
+      end
+    end
   end
 
   private

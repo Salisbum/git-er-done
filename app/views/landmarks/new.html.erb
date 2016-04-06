@@ -1,0 +1,17 @@
+<h3>New Landmark Form</h3>
+
+<%= form_for(@landmark) do |f| %>
+  <%= f.label(:name, "Landmark Name") %>
+  <%= f.text_field :name %>
+
+  <%= f.label(:location, "Landmark Location") %>
+  <%= f.text_field :location %>
+
+  <%= f.label(:image, "Landmark Image URL") %>
+  <%= f.text_field :image %>
+
+  <%= f.label(:description, "Landmark Description") %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "Add Landmark" %>
+<% end %>

@@ -21,6 +21,8 @@ Coveralls.wear!('rails')
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require File.expand_path("../../config/environment", __FILE__)
 RSpec.configure do |config|
+  require File.expand_path("../../config/environment", __FILE__)
+
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end

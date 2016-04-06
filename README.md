@@ -2,6 +2,7 @@
 [![Code Climate](https://codeclimate.com/github/Salisbum/git-er-done/badges/gpa.svg)](https://codeclimate.com/github/Salisbum/git-er-done)
 ![Coverage Status](https://coveralls.io/repos/salisbum/git-er-done/badge.png)
 
+
 # Landmark Review Site
 
 _Better name TBD_

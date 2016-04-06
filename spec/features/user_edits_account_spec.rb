@@ -1,12 +1,10 @@
 require 'rails_helper'
-
 feature "User edits account" do
   scenario 'user navigates to edit account page' do
     user_login
     click_on 'Edit registration'
     expect(page).to have_content('Edit User')
   end
-
   scenario 'user edits account with correct data' do
     user_login
     click_on 'Edit registration'
@@ -17,7 +15,6 @@ feature "User edits account" do
 
     expect(page).to have_content('Logout')
   end
-
   scenario 'user edits account with bad data' do
     user_login
     click_on 'Edit registration'

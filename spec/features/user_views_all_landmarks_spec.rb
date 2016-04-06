@@ -1,7 +1,4 @@
 require 'rails_helper'
-
-# [] Visiting the `/landmarks` path should contain a list of ordered landmarks.
-
 feature "user sees a list of landmarks" do
   scenario "[success!] sees a list of landmarks in alphabetical order" do
     statue_of_liberty = Landmark.create(
@@ -24,6 +21,5 @@ feature "user sees a list of landmarks" do
     expect(page).to have_content grand_canyon.name
 
     expect(grand_canyon.name).to appear_before(statue_of_liberty.name)
-
   end
 end

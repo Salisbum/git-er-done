@@ -7,7 +7,8 @@ feature "User creates account" do
   end
 
   scenario 'user creates account' do
-    visit '/users/sign_up'
+    visit '/'
+    click_link 'Sign Up'
 
     fill_in "Email", with: "derpherp@email.com"
     fill_in "Password", with: "derpherp"

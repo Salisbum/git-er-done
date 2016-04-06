@@ -1,14 +1,20 @@
-<table>
-  <thead>
-    <tr>
-      <th>Thumbnail</th>
-      <th>Landmark</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @landmarks.each do |landmark| %>
+<%= form_tag landmarks_path, method: "get" do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Landmarks" %>
+  <%= submit_tag "Search", name: nil %>
+<% end %>
+
+<% if @landmarks.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Landmark</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @landmarks.each do |landmark| %>
       <tr>
         <td>
           <%= image_tag("#{landmark.image}", height: '50', width: '50') %>
@@ -23,6 +29,9 @@
           <%= button_to "Delete", landmark_path(landmark), class:"button", method:"delete" %>
         </td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>There are no landmarks containing the term(s) <%= params[:search] %>.</p>
+<% end %>

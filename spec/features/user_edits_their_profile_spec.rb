@@ -45,7 +45,6 @@ feature "user edits their profile" do
       password: "11111111"
     )
 
-
     profile = Profile.create(
       username: "Xander321",
       location: "Boston",
@@ -54,7 +53,7 @@ feature "user edits their profile" do
       user: user
     )
 
-    profile2 = Profile.create(
+    Profile.create(
       username: "BillyBob",
       location: "Boston",
       avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",

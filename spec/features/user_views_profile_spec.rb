@@ -6,7 +6,6 @@ feature "new user views to their profile page" do
   scenario "new user sees personal information" do
     user = FactoryGirl.create(:user)
 
-
     profile = Profile.create(
       username: "Xander321",
       location: "Boston",

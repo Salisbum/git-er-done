@@ -16,3 +16,5 @@
 /config/secret_token.rb
 .env
 /coverage
+
+.DS_Store

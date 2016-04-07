@@ -3,16 +3,15 @@ require 'rails_helper'
 # [] Visiting the `/landmarks/1` path should show the landmark details for a landmark with the ID of 1.
 
 feature "user edits their profile" do
-  scenario "successfully edits profile" do
-    user = FactoryGirl.create(:user)
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:profile) { Profile.create(
+    username: "Xander321",
+    location: "Boston",
+    avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
+    pun: "Isn't this punny?",
+    user: user) }
 
-    profile = Profile.create(
-      username: "Xander321",
-      location: "Boston",
-      avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
-      pun: "Isn't this punny?",
-      user: user
-    )
+  scenario "successfully edits profile" do
 
     visit root_path
     click_on 'Login'
@@ -39,18 +38,9 @@ feature "user edits their profile" do
   end
 
   scenario "successfully edits profile" do
-    user = FactoryGirl.create(:user)
     user2 = User.create(
       email: "bananas@gmail.com",
       password: "11111111"
-    )
-
-    profile = Profile.create(
-      username: "Xander321",
-      location: "Boston",
-      avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
-      pun: "Isn't this punny?",
-      user: user
     )
 
     Profile.create(

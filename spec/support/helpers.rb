@@ -6,3 +6,7 @@ def user_login
   fill_in 'Password', with: user.password
   click_on 'Log in'
 end
+
+def seed_test
+  
+end

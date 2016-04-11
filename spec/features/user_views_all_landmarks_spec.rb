@@ -15,35 +15,35 @@ feature "user sees a list of landmarks" do
       description: "A colossal neoclassical sculpture on Liberty Island"
     )
 
-    grand_canyon = Landmark.create(
+    Landmark.create(
       name: "Grand Canyon",
       location: "Arizona",
       image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
       description: "A colossal neoclassical sculpture on Liberty Island"
     )
 
-    grand_canyon = Landmark.create(
+    Landmark.create(
       name: "Grand Canyon",
       location: "Arizona",
       image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
       description: "A colossal neoclassical sculpture on Liberty Island"
     )
 
-    grand_canyon = Landmark.create(
+    Landmark.create(
       name: "Grand Canyon",
       location: "Arizona",
       image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
       description: "A colossal neoclassical sculpture on Liberty Island"
     )
 
-    grand_canyon = Landmark.create(
+    Landmark.create(
       name: "Grand Canyon",
       location: "Arizona",
       image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
       description: "A colossal neoclassical sculpture on Liberty Island"
     )
 
-    grand_canyon = Landmark.create(
+    Landmark.create(
       name: "Grand Canyon",
       location: "Arizona",
       image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",

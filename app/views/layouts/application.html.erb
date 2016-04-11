@@ -35,6 +35,12 @@
       </li>
     <% end %>
 
+    <% if user_signed_in? %>
+      <li>
+      <%= link_to('Landmarks', landmarks_path) %>
+      </li>
+    <% end %>
+
     <div class="container">
       <%= render 'layouts/messages' %>
       <%= yield %>

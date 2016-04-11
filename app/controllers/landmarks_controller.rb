@@ -1,14 +1,16 @@
 class LandmarksController < ApplicationController
   def index
     if params[:search]
-      @landmarks = Landmark.search(params[:search])
+      @landmarks = Landmark.search(params[:search]).page(params[:page]).per(5)
     else
-      @landmarks = Landmark.order(:name)
+      @landmarks = Landmark.order(:name).page(params[:page]).per(5)
     end
   end
 
   def show
     @landmark = Landmark.find(params[:id])
+    @review = Review.new
+    @reviews = @landmark.reviews.order(votes: :asc)
   end
 
   def new
@@ -25,30 +27,29 @@ class LandmarksController < ApplicationController
       flash[:error] = "Landmark not added successfully! #{@landmark.errors.full_messages.join ', '}."
       render :new
     end
+  end
 
-    def edit
-      @landmark = Landmark.find(params[:id])
-    end
+  def edit
+    @landmark = Landmark.find(params[:id])
+  end
 
-    def update
-      @landmark = Landmark.find(params[:id])
-      @landmark.update(landmark_params)
-      if @landmark.save
-        flash[:notice] = "Landmark updated successfully!"
-        redirect_to landmark_path(@landmark)
-      else
-        flash[:error] = "Update unsucessful. No changes were made."
-        redirect_to edit_landmark_path(@landmark)
-      end
+  def update
+    @landmark = Landmark.find(params[:id])
+    if @landmark.update(landmark_params)
+      flash[:notice] = "Landmark updated successfully!"
+      redirect_to landmark_path(@landmark)
+    else
+      flash[:error] = "Update unsucessful. No changes were made."
+      redirect_to edit_landmark_path(@landmark)
     end
+  end
 
-    def destroy
-      @landmark = Landmark.find(params[:id])
-      if @landmark.destroy
-        flash[:notice] = "Landmark Deleted Successfully"
-      end
-      redirect_to landmarks_path
+  def destroy
+    @landmark = Landmark.find(params[:id])
+    if @landmark.destroy
+      flash[:notice] = "Landmark Deleted Successfully"
     end
+    redirect_to landmarks_path
   end
 
   private

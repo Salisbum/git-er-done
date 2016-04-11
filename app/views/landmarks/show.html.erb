@@ -1,5 +1,22 @@
 <h3><%= @landmark.name %></h3>
-<%= image_tag("#{@landmark.image}") %>
 <%= @landmark.user.email %>
+<%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
 <%= @landmark.location %>
 <%= @landmark.description %>
+
+<%= render '/reviews/form' %>
+
+<h2>Reviews:</h2>
+    <% if !@reviews.empty? %>
+      <% @reviews.each do |review| %>
+      <li>
+        <%= review.votes %>
+        <%= review.body %>
+        <%= review.user.email %>
+        <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
+        <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
+      </li>
+      <% end %>
+    <% else %>
+      No reviews! Want to leave one?
+    <% end %>

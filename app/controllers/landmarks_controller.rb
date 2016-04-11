@@ -1,9 +1,9 @@
 class LandmarksController < ApplicationController
   def index
     if params[:search]
-      @landmarks = Landmark.search(params[:search])
+      @landmarks = Landmark.search(params[:search]).page(params[:page]).per(5)
     else
-      @landmarks = Landmark.order(:name)
+      @landmarks = Landmark.order(:name).page(params[:page]).per(5)
     end
   end
 

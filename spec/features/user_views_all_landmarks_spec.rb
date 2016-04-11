@@ -15,11 +15,48 @@ feature "user sees a list of landmarks" do
       description: "A colossal neoclassical sculpture on Liberty Island"
     )
 
+    grand_canyon = Landmark.create(
+      name: "Grand Canyon",
+      location: "Arizona",
+      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
+      description: "A colossal neoclassical sculpture on Liberty Island"
+    )
+
+    grand_canyon = Landmark.create(
+      name: "Grand Canyon",
+      location: "Arizona",
+      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
+      description: "A colossal neoclassical sculpture on Liberty Island"
+    )
+
+    grand_canyon = Landmark.create(
+      name: "Grand Canyon",
+      location: "Arizona",
+      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
+      description: "A colossal neoclassical sculpture on Liberty Island"
+    )
+
+    grand_canyon = Landmark.create(
+      name: "Grand Canyon",
+      location: "Arizona",
+      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
+      description: "A colossal neoclassical sculpture on Liberty Island"
+    )
+
+    grand_canyon = Landmark.create(
+      name: "Grand Canyon",
+      location: "Arizona",
+      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
+      description: "A colossal neoclassical sculpture on Liberty Island"
+    )
+
     visit landmarks_path
 
-    expect(page).to have_content statue_of_liberty.name
-    expect(page).to have_content grand_canyon.name
+    expect(page).to have_content("Grand Canyon", :count => 5)
 
+    click_on "Next"
+
+    expect(page).to have_content statue_of_liberty.name
     expect(grand_canyon.name).to appear_before(statue_of_liberty.name)
   end
 end

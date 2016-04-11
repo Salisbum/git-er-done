@@ -35,3 +35,5 @@
 <% else %>
   <p>There are no landmarks containing the term(s) <%= params[:search] %>.</p>
 <% end %>
+
+<%= paginate @landmarks %>

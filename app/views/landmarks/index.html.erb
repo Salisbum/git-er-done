@@ -1,7 +1,10 @@
+<h1>Search</h1>
 <%= form_tag landmarks_path, method: "get" do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Landmarks" %>
   <%= submit_tag "Search", name: nil %>
 <% end %>
+
+<%= link_to('New Landmark', new_landmark_path)  %>
 
 <% if @landmarks.present? %>
   <table>

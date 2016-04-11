@@ -1,6 +1,10 @@
 <h2>Profiles Index</h2>
 
-<% binding.pry %>
-<% @profiles.each do |profile| %>
-  <%= profile.user.email %>
+<% if @profiles.nil? %>
+  There are no profiles to display
+<% else %>
+  <% @profiles.each do |profile| %>
+    <%= profile.user.email %>,
+    <%= button_to "Delete", profile_path(profile), class:"button", method: "delete" %>
+  <% end %>
 <% end %>

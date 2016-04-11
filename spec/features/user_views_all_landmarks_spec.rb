@@ -2,7 +2,6 @@ require 'rails_helper'
 
 feature "user sees a list of landmarks" do
   let!(:user) { FactoryGirl.create(:user) }
-  
   scenario "[success!] sees a list of landmarks in alphabetical order" do
     statue_of_liberty = Landmark.create(
       name: "Statue of Liberty",

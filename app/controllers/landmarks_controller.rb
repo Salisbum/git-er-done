@@ -22,7 +22,7 @@ class LandmarksController < ApplicationController
       flash[:notice] = "Landmark added successfully!"
       redirect_to landmark_path(@landmark)
     else
-      flash[:error] = "Landmark not added successfully! #{@landmark.errors.full_messages.join ", "}."
+      flash[:error] = "Landmark not added successfully! #{@landmark.errors.full_messages.join ', '}."
       render :new
     end
 

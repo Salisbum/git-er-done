@@ -1,5 +1,5 @@
 <h3><%= @landmark.name %></h3>
-  <%= image_tag("#{@landmark.image}") %>
+<%= image_tag("#{@landmark.image}") %>
+<%= @landmark.user.email %>
 <%= @landmark.location %>
 <%= @landmark.description %>
-   

@@ -3,12 +3,15 @@ require 'rails_helper'
 # [] Visiting the `/landmarks/1` path should show the landmark details for a landmark with the ID of 1.
 
 feature "user sees landmark show page" do
+  let!(:user) { FactoryGirl.create(:user) }
+
   scenario "clicks link and is taken to show page for given landmark" do
     statue_of_liberty = Landmark.create(
       name: "Statue of Liberty",
       location: "New York",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
+      description: "A colossal neoclassical sculpture on Liberty Island",
+      user: user
     )
 
     visit landmarks_path

@@ -1,19 +1,23 @@
 require 'rails_helper'
+
 feature "User searches for a landmark" do
+  let!(:user) { FactoryGirl.create(:user) }
 
   before(:each) do
     @statue_of_liberty = Landmark.create(
       name: "Statue of Liberty",
       location: "New York",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
+      description: "A colossal neoclassical sculpture on Liberty Island",
+      user: user
     )
 
     @grand_canyon = Landmark.create(
       name: "Grand Canyon",
       location: "Arizona",
       image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
+      description: "A colossal neoclassical sculpture on Liberty Island",
+      user: user
     )
   end
 

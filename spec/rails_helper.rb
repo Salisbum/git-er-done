@@ -6,6 +6,7 @@ require "capybara/rails"
 require "capybara/rspec"
 require "pry"
 require "factory_girl_rails"
+require 'support/factories'
 
 File.expand_path('../../config/environment', __FILE__)
 

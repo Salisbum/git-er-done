@@ -21,7 +21,7 @@ user4 = User.create(
 user5 = User.create(
   email: "email5@gmail.com",
   password: "12345678"
-  )
+)
 
 Profile.create(
   username: "herpderp1",
@@ -61,7 +61,7 @@ Profile.create(
   avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
   pun: "Isn't this punny?!",
   user: user1
-  )
+)
 
 Profile.create(
   username: "herpderp5",
@@ -80,10 +80,10 @@ landmark1 = Landmark.create(
 )
 
 landmark1 = Landmark.create(
-  name: "Eiffel Tower",
-  location: "Paris, FR",
-  image: "http://cdn.history.com/sites/2/2015/04/hith-eiffel-tower-iStock_000016468972Large.jpg",
-  description: "Very tall, lots of metal.",
+  name: "Pyramids of Giza",
+  location: "Egypt",
+  image: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Kheops-Pyramid.jpg",
+  description: "hot, but awesome.",
   user: user1
 )
 

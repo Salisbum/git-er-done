@@ -5,7 +5,7 @@ feature "Admin visits users index" do
 
   scenario "Admin deletes user sucessfully" do
 
-    profile1 = Profile.create(
+    Profile.create(
       username: "Xander321",
       location: "Boston",
       avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",

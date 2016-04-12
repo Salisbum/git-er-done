@@ -15,8 +15,7 @@ class User < ActiveRecord::Base
   private
 
   def build_default_profile
-   build_profile
-   true
+    build_profile
+    true
   end
-
 end

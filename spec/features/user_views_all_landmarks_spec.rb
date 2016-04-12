@@ -1,62 +1,17 @@
 require 'rails_helper'
+
 feature "user sees a list of landmarks" do
+  let(:user) { FactoryGirl.create(:user) }
+  let!(:landmarks) { FactoryGirl.create_list(:landmark, 7, user: user) }
+
   scenario "[success!] sees a list of landmarks in alphabetical order" do
-    statue_of_liberty = Landmark.create(
-      name: "Statue of Liberty",
-      location: "New York",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
-    )
-
-    grand_canyon = Landmark.create(
-      name: "Grand Canyon",
-      location: "Arizona",
-      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
-    )
-
-    Landmark.create(
-      name: "Grand Canyon",
-      location: "Arizona",
-      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
-    )
-
-    Landmark.create(
-      name: "Grand Canyon",
-      location: "Arizona",
-      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
-    )
-
-    Landmark.create(
-      name: "Grand Canyon",
-      location: "Arizona",
-      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
-    )
-
-    Landmark.create(
-      name: "Grand Canyon",
-      location: "Arizona",
-      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
-    )
-
-    Landmark.create(
-      name: "Grand Canyon",
-      location: "Arizona",
-      image: "https://lh6.googleusercontent.com/-0IU2MaN1t0c/AAAAAAAAAAI/AAAAAAAAABs/ROeqMxHHRfY/s0-c-k-no-ns/photo.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
-    )
-
     visit landmarks_path
 
-    expect(page).to have_content("Grand Canyon", :count => 5)
+    expect(page).to have_content("Eiffel", count: 5)
 
     click_on "Next"
 
-    expect(page).to have_content statue_of_liberty.name
-    expect(grand_canyon.name).to appear_before(statue_of_liberty.name)
+    expect(page).to have_content landmarks[-2].name
+    expect(landmarks[-2].name).to appear_before(landmarks.last.name)
   end
 end

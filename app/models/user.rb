@@ -8,11 +8,15 @@ class User < ActiveRecord::Base
 
   after_create :build_default_profile
 
+  def admin?
+    role == "admin"
+  end
+
   private
 
-   def build_default_profile
-     build_profile
-     true
-   end
+  def build_default_profile
+   build_profile
+   true
+  end
 
 end

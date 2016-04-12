@@ -22,7 +22,7 @@ feature "Admin visits users index" do
       user: user2
     )
 
-    user_login
+    admin_login
     visit profiles_path
 
     expect(page).to have_content user1.email

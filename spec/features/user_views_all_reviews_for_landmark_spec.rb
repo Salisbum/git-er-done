@@ -2,10 +2,10 @@ require 'rails_helper'
 
 # [] Visiting the `/landmarks/1` path should show the landmark details for a landmark with the ID of 1.
 
-feature "user creates a new review" do
+feature "user views all reviews on a landmark" do
   let!(:user) { FactoryGirl.create(:user) }
 
-  scenario "user views landmark and adds review" do
+  scenario "user views landmark with reviews" do
     user2 = FactoryGirl.create(:user)
     user3 = FactoryGirl.create(:user)
     user4 = FactoryGirl.create(:user)

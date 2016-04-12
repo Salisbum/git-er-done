@@ -71,7 +71,7 @@ Profile.create(
   user: user5
 )
 
-landmark1 = Landmark.create(
+landmark = Landmark.create(
   name: "Eiffel Tower",
   location: "Paris, FR",
   image: "http://cdn.history.com/sites/2/2015/04/hith-eiffel-tower-iStock_000016468972Large.jpg",
@@ -136,7 +136,7 @@ Review.create(
 
 Review.create(
   body: "This place was so dope",
-  landmark: landmark1,
+  landmark: landmark,
   user: user2,
   votes: "3"
 )

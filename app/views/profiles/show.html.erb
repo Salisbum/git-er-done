@@ -1,6 +1,6 @@
 <h3>Your Profile!</h3>
   <ul>
-    <li><%= image_tag("#{@profile.avatar_url}") %></li>
+    <li><%= image_tag "#{@profile.avatar_url.thumb.url}" %></li>
     <li><%= @profile.username %></li>
     <li><%= @user.email %></li>
     <li><%= @profile.pun %></li>

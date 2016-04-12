@@ -25,7 +25,9 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(
       :username,
       :location,
-      :pun
+      :pun,
+      :avatar_url,
+      :remove_avatar_url
     )
   end
 end

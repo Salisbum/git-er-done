@@ -8,7 +8,8 @@ feature "user creates a new review" do
       name: "Statue of Liberty",
       location: "New York",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
+      description: "A colossal neoclassical sculpture on Liberty Island",
+      user: FactoryGirl.create(:user)
     )
 
     user_login
@@ -29,7 +30,8 @@ feature "user creates a new review" do
       name: "Statue of Liberty",
       location: "New York",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
+      description: "A colossal neoclassical sculpture on Liberty Island",
+      user: FactoryGirl.create(:user)
     )
 
     user_login
@@ -49,7 +51,8 @@ feature "user creates a new review" do
       name: "Statue of Liberty",
       location: "New York",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
+      description: "A colossal neoclassical sculpture on Liberty Island",
+      user: FactoryGirl.create(:user)
     )
 
     wall_of_text = "Private messaging is one of the main ways that people

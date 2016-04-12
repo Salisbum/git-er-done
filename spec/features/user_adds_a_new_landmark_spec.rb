@@ -9,7 +9,8 @@ feature "User visits new landmark path" do
 
   scenario "user adds a new landmark successfully" do
     user_login
-    landmark = FactoryGirl.create(:landmark)
+    user = FactoryGirl.create(:user)
+    landmark = FactoryGirl.create(:landmark, user: user)
 
     visit new_landmark_path
 

@@ -1,5 +1,5 @@
 class Profile < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   validates :username, presence: true, on: :update
   validates :username, uniqueness: true, on: :update

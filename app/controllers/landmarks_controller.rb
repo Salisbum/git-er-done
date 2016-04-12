@@ -19,11 +19,12 @@ class LandmarksController < ApplicationController
 
   def create
     @landmark = Landmark.new(landmark_params)
+    @landmark.user = current_user
     if @landmark.save
       flash[:notice] = "Landmark added successfully!"
       redirect_to landmark_path(@landmark)
     else
-      flash[:error] = "Landmark not added. #{@landmark.errors.full_messages.join ', '}."
+      flash[:error] = "Landmark not added successfully! #{@landmark.errors.full_messages.join ', '}."
       render :new
     end
   end

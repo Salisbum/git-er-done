@@ -8,41 +8,19 @@ feature "user deletes a review" do
     user3 = FactoryGirl.create(:user)
     user4 = FactoryGirl.create(:user)
 
-    statue_of_liberty = Landmark.create(
-      name: "Statue of Liberty",
-      location: "New York",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island"
-    )
+    user = FactoryGirl.create(:user)
+    landmark = FactoryGirl.create(:landmark, user: user)
 
-    Review.create(
-      body: "SO FRESH AND SO GREEN GUYS",
-      landmark: statue_of_liberty,
-      user: user2,
-      votes: "3"
-    )
-
-    Review.create(
-      body: "I don't even think the statue can read.",
-      landmark: statue_of_liberty,
-      user: user3,
-      votes: "56"
-    )
-
-    Review.create(
-      body: "I got tired walking up the stairs.",
-      landmark: statue_of_liberty,
-      user: user4,
-      votes: "-3"
-    )
+    FactoryGirl.create(:review, landmark: landmark, user: user2)
+    FactoryGirl.create(:review, landmark: landmark, user: user4)
+    FactoryGirl.create(:review, landmark: landmark, user: user3)
 
     user_login
 
     visit landmarks_path
+    click_link landmark.name
 
-    click_link "Statue of Liberty"
-
-    expect(page).to have_content statue_of_liberty.name
+    expect(page).to have_content landmark.name
     page.all('.button_to')[1].click_button "Delete Review"
     expect(page).to have_content("Review Deleted Successfully")
   end

@@ -1,11 +1,12 @@
 require 'rails_helper'
 feature "User logs in" do
+  let!(:user) { FactoryGirl.create(:user) }
+
   scenario 'user navigates to log in page' do
     visit '/'
     expect(page).to have_content('Login')
   end
   scenario 'user successfully logs in' do
-    user = FactoryGirl.create(:user)
     visit '/'
     click_link 'Login'
 
@@ -19,7 +20,6 @@ feature "User logs in" do
     expect(page).to have_content("LANDSNARKR")
   end
   scenario 'user unsuccessfully logs in' do
-    user = FactoryGirl.create(:user)
     visit '/'
     click_link 'Login'
 

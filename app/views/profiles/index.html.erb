@@ -1,7 +1,7 @@
 <h2>Profiles Index</h2>
 
 <% if @profiles.nil? %>
-  There are no profiles to display
+  There are no profiles to display.
 <% else %>
   <% @profiles.each do |profile| %>
     <%= profile.user.email %>,

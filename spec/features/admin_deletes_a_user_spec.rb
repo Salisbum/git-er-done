@@ -15,11 +15,12 @@ feature "Admin visits users index" do
 
     user_login
     visit profiles_path
-    
+
     expect(page).to have_content user1.email
 
     click_on "Delete"
 
     expect(page).to_not have_content user1.email
+    expect(page).to have_content "Account Deleted Successfully!"
   end
 end

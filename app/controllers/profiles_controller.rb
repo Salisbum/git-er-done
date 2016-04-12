@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
     user = profile.user
 
     if profile.destroy && user.destroy
-      flash[:notice] = "Account Deleted Successfully"
+      flash[:notice] = "Account Deleted Successfully!"
     else
       flash[:error] = "Account Not Deleted"
     end

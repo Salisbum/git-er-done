@@ -6,33 +6,24 @@ feature "user edits a review" do
   scenario "user views landmark's reviews and successfully edits one" do
     user2 = FactoryGirl.create(:user)
     user3 = FactoryGirl.create(:user)
+    user4 = FactoryGirl.create(:user)
 
-    statue_of_liberty = Landmark.create(
-      name: "Statue of Liberty",
-      location: "New York",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island",
-      user: user2
-    )
+    user = FactoryGirl.create(:user)
+    landmark = FactoryGirl.create(:landmark, user: user)
 
-
-    review1 = Review.create(
-      body: "SO FRESH AND SO GREEN GUYS",
-      landmark: statue_of_liberty,
-      user: user3,
-      votes: "3"
-    )
+    review1 = FactoryGirl.create(:review, landmark: landmark, user: user2)
+    FactoryGirl.create(:review, landmark: landmark, user: user4)
+    FactoryGirl.create(:review, landmark: landmark, user: user3)
 
     user_login
 
     visit landmarks_path
 
-    click_link "Statue of Liberty"
+    click_link landmark.name
 
-    expect(page).to have_content statue_of_liberty.name
+    expect(page).to have_content landmark.name
     expect(page).to have_content review1.body
-
-    click_link "Edit Review"
+    first('.review > a').click
 
     fill_in "Review", with: "SO FRESH AND SO GREEN GUYS. SERIOUSLY. Who knew copper turned green!? themoreyouknow.gif"
 
@@ -42,35 +33,27 @@ feature "user edits a review" do
   end
 
   scenario "user views landmark's reviews and unsuccessfully edits one" do
-    user = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
+    user3 = FactoryGirl.create(:user)
+    user4 = FactoryGirl.create(:user)
 
-    statue_of_liberty = Landmark.create(
-      name: "Statue of Liberty",
-      location: "New York",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island",
-      user: user2
-    )
+    user = FactoryGirl.create(:user)
+    landmark = FactoryGirl.create(:landmark, user: user)
 
-
-    review1 = Review.create(
-      body: "SO FRESH AND SO GREEN GUYS",
-      landmark: statue_of_liberty,
-      user: user,
-      votes: "3"
-    )
+    review1 = FactoryGirl.create(:review, landmark: landmark, user: user2)
+    FactoryGirl.create(:review, landmark: landmark, user: user4)
+    FactoryGirl.create(:review, landmark: landmark, user: user3)
 
     user_login
 
     visit landmarks_path
 
-    click_link "Statue of Liberty"
+    click_link landmark.name
 
-    expect(page).to have_content statue_of_liberty.name
+    expect(page).to have_content landmark.name
     expect(page).to have_content review1.body
 
-    click_link "Edit Review"
+    first('.review > a').click
 
     fill_in "Review", with: ""
 

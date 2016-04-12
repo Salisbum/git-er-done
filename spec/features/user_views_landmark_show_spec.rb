@@ -6,21 +6,15 @@ feature "user sees landmark show page" do
   let!(:user) { FactoryGirl.create(:user) }
 
   scenario "clicks link and is taken to show page for given landmark" do
-    statue_of_liberty = Landmark.create(
-      name: "Statue of Liberty",
-      location: "New York",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Statue_of_Liberty_7.jpg/500px-Statue_of_Liberty_7.jpg",
-      description: "A colossal neoclassical sculpture on Liberty Island",
-      user: user
-    )
+    landmark = FactoryGirl.create(:landmark, user: user)
 
     visit landmarks_path
 
-    click_link "Statue of Liberty"
+    click_link landmark.name
 
-    expect(page).to have_content statue_of_liberty.name
-    expect(page).to have_content statue_of_liberty.location
-    page.should have_selector ("img[src$='#{statue_of_liberty.image}']")
-    expect(page).to have_content statue_of_liberty.description
+    expect(page).to have_content landmark.name
+    expect(page).to have_content landmark.location
+    page.should have_selector ("img[src$='#{landmark.image}']")
+    expect(page).to have_content landmark.description
   end
 end

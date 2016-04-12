@@ -6,7 +6,7 @@ feature "Admin visits users index" do
 
   scenario "Admin visits users index sucessfully" do
 
-    profile1 = Profile.create(
+    Profile.create(
       username: "Xander321",
       location: "Boston",
       avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
@@ -14,12 +14,12 @@ feature "Admin visits users index" do
       user: user1
     )
 
-    profile2 = Profile.create(
-    username: "Xander123",
-    location: "Boston",
-    avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
-    pun: "Isn't this punny?",
-    user: user2
+    Profile.create(
+      username: "Xander123",
+      location: "Boston",
+      avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
+      pun: "Isn't this punny?",
+      user: user2
     )
 
     user_login

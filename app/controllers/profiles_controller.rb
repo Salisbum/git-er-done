@@ -1,11 +1,13 @@
 class ProfilesController < ApplicationController
-  def show
-    @profile = Profile.find(params[:id])
-    @user = @profile.user
-  end
+  before_action :authorize_user, only: [:index]
 
   def index
     @profiles = Profile.all
+  end
+
+  def show
+    @profile = Profile.find(params[:id])
+    @user = @profile.user
   end
 
   def destroy
@@ -45,5 +47,11 @@ class ProfilesController < ApplicationController
       :avatar_url,
       :remove_avatar_url
     )
+  end
+
+  def authorize_user
+    if !user_signed_in? || !current_user.admin?
+      redirect_to root_path
+    end
   end
 end

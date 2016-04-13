@@ -20,6 +20,7 @@ feature "user creates a new review" do
     click_on "Submit"
 
     expect(page).to have_content("It's SO GREEN, GUYS.")
+    expect(page).to have_content ("Average Rating: 4")
   end
   scenario "user attempts to create Review with no body" do
     user = FactoryGirl.create(:user)

@@ -21,7 +21,6 @@ RSpec.describe Review do
     Review.new(
       body: "This place is crusty and old, why anyone comes here is beyond me.",
       landmark: landmark,
-      votes: "2",
       user: user
     )
   end

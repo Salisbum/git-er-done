@@ -8,4 +8,13 @@ Rails.application.routes.draw do
   end
 
   resources :profiles
+
+  resources :reviews do
+    resources :votes do
+      collection do
+        post 'upvote'
+        post 'downvote'
+      end
+    end
+  end
 end

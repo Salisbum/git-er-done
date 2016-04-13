@@ -131,54 +131,46 @@ Review.create(
   body: "This place was so dope",
   landmark: landmark1,
   user: user1,
-  votes: "4"
 )
 
 Review.create(
   body: "This place was so dope",
   landmark: landmark,
   user: user2,
-  votes: "3"
 )
 
 Review.create(
   body: "This place was so dope",
   landmark: landmark2,
   user: user3,
-  votes: "7"
 )
 
 Review.create(
   body: "This place was so dope",
   landmark: landmark4,
   user: user5,
-  votes: "-3"
 )
 
 Review.create(
   body: "This place was so dope",
   landmark: landmark5,
   user: user4,
-  votes: "9"
 )
 
 Review.create(
   body: "This place was so dope",
   landmark: landmark2,
   user: user3,
-  votes: "6"
 )
 
 Review.create(
   body: "This place was so dope",
   landmark: landmark6,
   user: user5,
-  votes: "81"
 )
 
 Review.create(
   body: "This place was so dope",
   landmark: landmark3,
   user: user1,
-  votes: "4"
 )

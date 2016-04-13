@@ -11,12 +11,18 @@
     <% if !@reviews.empty? %>
       <% @reviews.each do |review| %>
       <li>
-        <div class=review>
-        <%= review.votes %>
-        <%= review.body %>
-        <%= review.user.email %>
-        <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
-        <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
+        <div class="review">
+          <%= review.body %>
+          <%= review.user.email %>
+          <div id="vote-div">
+            <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
+            <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
+            <div class= 'vote-total'>
+              <%= @vote_total[review.id] %>
+            </div>
+          </div>
+          <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
+          <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
         </div>
       </li>
       <% end %>

@@ -19,7 +19,6 @@ FactoryGirl.define do
     body "This place was so dope"
     landmark
     user
-    sequence(:votes) { |n| "#{n}" }
   end
 
   factory :profile do

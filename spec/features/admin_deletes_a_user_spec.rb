@@ -12,7 +12,25 @@ feature "User visits users index" do
       user: user1
     )
 
+    pyramid = Landmark.create(
+      name: "Pyramids of Giza",
+      location: "Egypt",
+      image: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Kheops-Pyramid.jpg",
+      description: "hot, but awesome.",
+      user: user1
+    )
+
+    Review.create(
+      body: "This place was so dope",
+      landmark: pyramid,
+      user: user1,
+      votes: "4"
+    )
+
     admin_login
+    visit landmark_path(pyramid)
+    expect(page).to have_content "This place was so dope"
+
     visit profiles_path
 
     expect(page).to have_content user1.email
@@ -21,6 +39,9 @@ feature "User visits users index" do
 
     expect(page).to_not have_content user1.email
     expect(page).to have_content "Account Deleted Successfully!"
+
+    visit landmark_path(pyramid)
+    expect(page).to_not have_content "This place was so dope"
   end
 
   scenario "User attempts to view profiles path" do

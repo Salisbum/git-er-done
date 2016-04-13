@@ -1,8 +1,18 @@
 <h3><%= @landmark.name %></h3>
+Creator:
 <% if @landmark.user.nil? %>
-  [DELETED]
+[DELETED]
 <% else %>
-  <%= @landmark.user.email %>
+<%= @landmark.user.email %>
+<% end %>
+<%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
+Location: <%= @landmark.location %>
+Description: <%= @landmark.description %>
+Average Rating:
+<% if @average_rating.nil? %>
+0
+<% else %>
+<%= @average_rating.floor %>
 <% end %>
 <%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
 <%= @landmark.location %>
@@ -15,12 +25,12 @@
       <% @reviews.each do |review| %>
       <li>
         <div class=review>
-        <%= review.votes %>
-        <%= review.body %>
+        Votes: <%= review.votes %>
+        Comment: <%= review.body %>
         <% if review.user.nil? %>
             [DELETED]
         <% else %>
-            <%= review.user.email %>
+          User: <%= review.user.email %>
         <% end %>
         <% if current_user == review.user || current_user.admin? %>
         <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>

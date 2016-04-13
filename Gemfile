@@ -23,6 +23,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'orderly'
+  gem 'database_cleaner'
 end
 
 group :test do

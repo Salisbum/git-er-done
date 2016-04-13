@@ -1,5 +1,15 @@
 <%= form_for [@landmark, @review] do |f| %>
   <%= f.label :body, "Review" %>:
   <%= f.text_area :body %>
+  <%= f.radio_button :landmark_review, '1' %>
+  <%= f.label :landmark_review, value: '1' %>
+  <%= f.radio_button :landmark_review, '2' %>
+  <%= f.label :landmark_review, value: '2' %>
+  <%= f.radio_button :landmark_review, '3' %>
+  <%= f.label :landmark_review, value: '3' %>
+  <%= f.radio_button :landmark_review, '4' %>
+  <%= f.label :landmark_review, value: '4' %>
+  <%= f.radio_button :landmark_review, '5' %>
+  <%= f.label :landmark_review, value: '5' %>
   <%= f.submit "Submit Review" %>
 <% end %>

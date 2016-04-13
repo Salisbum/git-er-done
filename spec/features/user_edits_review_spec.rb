@@ -27,6 +27,8 @@ feature "user edits a review" do
 
     fill_in "Review", with: "SO FRESH AND SO GREEN GUYS. SERIOUSLY. Who knew copper turned green!? themoreyouknow.gif"
 
+    choose('5')
+
     click_on "Submit"
 
     expect(page).to have_content("SO FRESH AND SO GREEN GUYS. SERIOUSLY. Who knew copper turned green!? themoreyouknow.gif")

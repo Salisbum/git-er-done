@@ -127,58 +127,98 @@ landmark6 = Landmark.create(
   user: user2
 )
 
+landmark7 = Landmark.create(
+  name: "Statue of Liberty",
+  location: "NY, NY",
+  image: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Statue_of_Liberty_7.jpg",
+  description: "It's just... Green... Big whoop.",
+  user: user2
+)
+
 Review.create(
-  body: "This place was so dope",
+  body: Faker::Hipster.sentence(10),
   landmark: landmark1,
   user: user1,
-  votes: "4"
+  votes: "4",
+  landmark_review: "3"
 )
 
 Review.create(
-  body: "This place was so dope",
+  body: Faker::Hipster.sentence(10),
   landmark: landmark,
   user: user2,
-  votes: "3"
+  votes: "3",
+  landmark_review: "2"
 )
 
 Review.create(
-  body: "This place was so dope",
+  body: Faker::Hipster.sentence(10),
   landmark: landmark2,
   user: user3,
-  votes: "7"
+  votes: "7",
+  landmark_review: "1"
 )
 
 Review.create(
-  body: "This place was so dope",
+  body: Faker::Hipster.sentence(10),
   landmark: landmark4,
   user: user5,
-  votes: "-3"
+  votes: "-3",
+  landmark_review: "5"
 )
 
 Review.create(
-  body: "This place was so dope",
+  body: Faker::Hipster.sentence(10),
   landmark: landmark5,
   user: user4,
-  votes: "9"
+  votes: "9",
+  landmark_review: "4"
 )
 
 Review.create(
-  body: "This place was so dope",
+  body: Faker::Hipster.sentence(10),
   landmark: landmark2,
   user: user3,
-  votes: "6"
+  votes: "6",
+  landmark_review: "3"
 )
 
 Review.create(
-  body: "This place was so dope",
+  body: Faker::Hipster.sentence(10),
   landmark: landmark6,
   user: user5,
-  votes: "81"
+  votes: "81",
+  landmark_review: "4"
 )
 
 Review.create(
-  body: "This place was so dope",
+  body: Faker::Hipster.sentence(10),
   landmark: landmark3,
   user: user1,
-  votes: "4"
+  votes: "4",
+  landmark_review: "2"
+)
+
+Review.create(
+  body: Faker::Hipster.sentence(10),
+  landmark: landmark3,
+  user: user1,
+  votes: "40",
+  landmark_review: "3"
+)
+
+Review.create(
+  body: Faker::Hipster.sentence(10),
+  landmark: landmark3,
+  user: user1,
+  votes: "-10",
+  landmark_review: "1"
+)
+
+Review.create(
+  body: Faker::Hipster.sentence(10),
+  landmark: landmark3,
+  user: user1,
+  votes: "5",
+  landmark_review: "5"
 )

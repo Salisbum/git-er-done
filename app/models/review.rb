@@ -6,4 +6,5 @@ class Review < ActiveRecord::Base
   validates :user, presence: true
   validates :landmark, presence: true
   validates :votes, presence: true
+  validates :landmark_review, inclusion: { in: %w(1 2 3 4 5) }
 end

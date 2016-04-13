@@ -1,4 +1,5 @@
 require 'coveralls'
+require 'database_cleaner'
 
 Coveralls.wear!('rails')
 
@@ -17,4 +18,13 @@ RSpec.configure do |config|
 
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation 
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do DatabaseCleaner.start end
+
+  config.after(:each) do DatabaseCleaner.clean end
 end

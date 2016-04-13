@@ -14,6 +14,7 @@ feature "user sees landmark show page" do
 
     expect(page).to have_content landmark.name
     expect(page).to have_content landmark.location
+    expect(page).to have_content landmark.average_review
     page.should have_selector ("img[src$='#{landmark.image}']")
     expect(page).to have_content landmark.description
   end

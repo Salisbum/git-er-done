@@ -22,10 +22,10 @@ feature "User visits new landmark path" do
     fill_in 'Description', with: landmark.description
 
     click_button "Submit Landmark"
-
     expect(page).to have_content "Landmark added successfully!"
     expect(page).to have_content landmark.name
     expect(page).to have_content landmark.location
+    expect(page).to have_content "0"
     page.should have_selector ("img[src$='#{landmark.image}']")
     expect(page).to have_content landmark.description
   end

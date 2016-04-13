@@ -14,11 +14,17 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    if @review.destroy
-      flash[:notice] = "Review Deleted Successfully"
+    if current_user == @review.user || current_user.admin?
+      if @review.destroy
+        flash[:notice] = "Review Deleted Successfully"
+      end
+      redirect_to landmark_path(@landmark)
+    else
+      flash[:notice] = "You cannot delete this review."
+      redirect_to landmark_path(@landmark)
     end
-    redirect_to landmarks_path
   end
+
 
   def edit
     landmark
@@ -28,12 +34,18 @@ class ReviewsController < ApplicationController
   def update
     landmark
     @review = Review.find(params[:id])
-    if @review.update(review_params)
-      flash[:notice] = "Review updated!"
+    if current_user == @review.user || current_user.admin?
+      if @review.update(review_params)
+        flash[:notice] = "Review updated!"
+      else
+        flash[:error] = "Review not saved! #{@review.errors.full_messages.join ', '}."
+      end
+      redirect_to landmark_path(landmark)
     else
-      flash[:error] = "Review not saved! #{@review.errors.full_messages.join ', '}."
+      flash[:notice] = "You cannot edit this review."
+      redirect_to landmark_path(@landmark)
     end
-    redirect_to landmark_path(landmark)
+
   end
 
   private

@@ -26,10 +26,12 @@
           <%= link_to landmark.name, landmark_path(landmark) %>
         </td>
         <td>
+          <% if current_user == landmark.user || current_user.admin? %>
           <%= button_to "Edit", edit_landmark_path(landmark), class:"button", method:"get" %>
         </td>
         <td>
           <%= button_to "Delete", landmark_path(landmark), class:"button", method:"delete" %>
+          <% end %>
         </td>
       </tr>
       <% end %>

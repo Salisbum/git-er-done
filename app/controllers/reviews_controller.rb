@@ -19,13 +19,11 @@ class ReviewsController < ApplicationController
       if @review.destroy
         flash[:notice] = "Review Deleted Successfully"
       end
-      redirect_to landmark_path(@landmark)
     else
       flash[:notice] = "You cannot delete this review."
-      redirect_to landmark_path(@landmark)
     end
+    redirect_to landmark_path(@landmark)
   end
-
 
   def edit
     landmark
@@ -46,7 +44,6 @@ class ReviewsController < ApplicationController
       flash[:notice] = "You cannot edit this review."
       redirect_to landmark_path(@landmark)
     end
-
   end
 
   private

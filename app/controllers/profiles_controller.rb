@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     reviews = user.reviews
 
     if profile.destroy && user.destroy
-      reviews.each do |review| review.destroy end
+      reviews.each { |review| review.destroy }
       flash[:notice] = "Account Deleted Successfully!"
     else
       flash[:error] = "Account Not Deleted"

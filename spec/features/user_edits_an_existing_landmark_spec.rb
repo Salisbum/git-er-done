@@ -6,6 +6,7 @@ feature "User edits an existing landmark" do
     user = FactoryGirl.create(:user)
     landmark = FactoryGirl.create(:landmark, user: user)
     login(user)
+    
     visit landmarks_path
 
     click_button "Edit"
@@ -30,7 +31,7 @@ feature "User edits an existing landmark" do
     user = FactoryGirl.create(:user)
     landmark = FactoryGirl.create(:landmark, user: user)
     login(user)
-    
+
     visit landmarks_path
 
     click_button "Edit"

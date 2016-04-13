@@ -8,7 +8,6 @@
 <%= @landmark.location %>
 <%= @landmark.description %>
 
-
 <%= render '/reviews/form' %>
 
 <h2>Reviews:</h2>
@@ -29,7 +28,7 @@
         <% end %>
         </div>
       </li>
-      <% end %>
-    <% else %>
-      No reviews! Want to leave one?
     <% end %>
+  <% else %>
+    No reviews! Want to leave one?
+  <% end %>

@@ -15,7 +15,7 @@ feature "user edits a review" do
     FactoryGirl.create(:review, landmark: landmark, user: user4)
     FactoryGirl.create(:review, landmark: landmark, user: user3)
 
-    user_login
+    login(user2)
 
     visit landmarks_path
 
@@ -44,7 +44,7 @@ feature "user edits a review" do
     FactoryGirl.create(:review, landmark: landmark, user: user4)
     FactoryGirl.create(:review, landmark: landmark, user: user3)
 
-    user_login
+    login(user2)
 
     visit landmarks_path
 

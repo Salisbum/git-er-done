@@ -15,13 +15,12 @@ feature "user deletes a review" do
     FactoryGirl.create(:review, landmark: landmark, user: user4)
     FactoryGirl.create(:review, landmark: landmark, user: user3)
 
-    user_login
+    login(user2)
 
     visit landmarks_path
     click_link landmark.name
-
     expect(page).to have_content landmark.name
-    page.all('.button_to')[1].click_button "Delete Review"
+    page.all('.button_to')[0].click_button "Delete Review"
     expect(page).to have_content("Review Deleted Successfully")
   end
 end

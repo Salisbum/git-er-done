@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    landmark
     @review = Review.find(params[:id])
     if current_user == @review.user || current_user.admin?
       if @review.destroy

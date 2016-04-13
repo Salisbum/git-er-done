@@ -8,7 +8,6 @@ class Landmark < ActiveRecord::Base
   validates :description, presence: true
   validates :user, presence: true
 
-
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
   end

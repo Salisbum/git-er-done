@@ -6,4 +6,5 @@ class Review < ActiveRecord::Base
   validates :user, presence: true
   validates :landmark, presence: true
   validates :votes, presence: true
+  validates :landmark_rating, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 end

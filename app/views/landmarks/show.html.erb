@@ -1,30 +1,36 @@
 <h3><%= @landmark.name %></h3>
+Creator:
 <% if @landmark.user.nil? %>
-  <%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
-  <%= @landmark.location %>
-  <%= @landmark.description %>
+[DELETED]
 <% else %>
-  <%= @landmark.user.email %>
-  <%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
-  <%= @landmark.location %>
-  <%= @landmark.description %>
+<%= @landmark.user.email %>
+<% end %>
+<%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
+Location: <%= @landmark.location %>
+Description: <%= @landmark.description %>
+Average Rating:
+<% if @average_rating.nil? %>
+0
+<% else %>
+<%= @average_rating.floor %>
 <% end %>
 
-  <%= render '/reviews/form' %>
+<%= render '/reviews/form' %>
 
-  <h2>Reviews:</h2>
-  <% if !@reviews.empty? %>
-    <% @reviews.each do |review| %>
-    <li>
-      <div class=review>
-      <%= review.votes %>
-      <%= review.body %>
-      <%= review.user.email %>
-      <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
-      <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
-      </div>
-    </li>
-    <% end %>
+<h2>Reviews:</h2>
+    <% if !@reviews.empty? %>
+      <% @reviews.each do |review| %>
+      <li>
+        <div class=review>
+        Votes: <%= review.votes %>
+        Comment: <%= review.body %>
+        User: <%= review.user.email %>
+        Landmark Rating: <%= review.landmark_rating %>
+        <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
+        <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
+        </div>
+      </li>
+      <% end %>
   <% else %>
     No reviews! Want to leave one?
   <% end %>

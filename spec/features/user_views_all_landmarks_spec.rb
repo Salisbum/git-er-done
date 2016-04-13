@@ -5,6 +5,7 @@ feature "user sees a list of landmarks" do
   let!(:landmarks) { FactoryGirl.create_list(:landmark, 7, user: user) }
 
   scenario "[success!] sees a list of landmarks in alphabetical order" do
+    user_login
     visit landmarks_path
 
     expect(page).to have_content("Eiffel", count: 5)

@@ -31,12 +31,13 @@ feature "User visits new landmark path" do
   end
 
   scenario "visitor does not provide proper information for a landmark" do
-      visit new_landmark_path
+    user_login
+    visit new_landmark_path
 
-      click_button "Submit Landmark"
-      expect(page).to have_content "Name can't be blank"
-      expect(page).to have_content "Location can't be blank"
-      expect(page).to have_content "Image can't be blank"
-      expect(page).to have_content "Description can't be blank"
-    end
+    click_button "Submit Landmark"
+    expect(page).to have_content "Name can't be blank"
+    expect(page).to have_content "Location can't be blank"
+    expect(page).to have_content "Image can't be blank"
+    expect(page).to have_content "Description can't be blank"
+  end
 end

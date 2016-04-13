@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(
       :body,
-      :landmark_review
+      :landmark_rating
     )
   end
 

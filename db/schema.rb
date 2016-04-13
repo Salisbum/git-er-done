@@ -11,20 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413135006) do
+ActiveRecord::Schema.define(version: 20160413191053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "landmarks", force: :cascade do |t|
-    t.string   "name",                         null: false
-    t.string   "location",                     null: false
-    t.string   "image",                        null: false
-    t.text     "description",                  null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.integer  "user_id",                      null: false
-    t.string   "average_review", default: "0"
+    t.string   "name",        null: false
+    t.string   "location",    null: false
+    t.string   "image",       null: false
+    t.text     "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id",     null: false
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -42,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160413135006) do
     t.integer "landmark_id",                   null: false
     t.string  "votes",           default: "0", null: false
     t.integer "user_id",                       null: false
-    t.string  "landmark_review"
+    t.integer "landmark_rating", default: 0
   end
 
   create_table "users", force: :cascade do |t|

@@ -140,7 +140,7 @@ Review.create(
   landmark: landmark1,
   user: user1,
   votes: "4",
-  landmark_review: "3"
+  landmark_rating: "3"
 )
 
 Review.create(
@@ -148,7 +148,7 @@ Review.create(
   landmark: landmark,
   user: user2,
   votes: "3",
-  landmark_review: "2"
+  landmark_rating: "2"
 )
 
 Review.create(
@@ -156,7 +156,7 @@ Review.create(
   landmark: landmark2,
   user: user3,
   votes: "7",
-  landmark_review: "1"
+  landmark_rating: "1"
 )
 
 Review.create(
@@ -164,7 +164,7 @@ Review.create(
   landmark: landmark4,
   user: user5,
   votes: "-3",
-  landmark_review: "5"
+  landmark_rating: "5"
 )
 
 Review.create(
@@ -172,7 +172,7 @@ Review.create(
   landmark: landmark5,
   user: user4,
   votes: "9",
-  landmark_review: "4"
+  landmark_rating: "4"
 )
 
 Review.create(
@@ -180,7 +180,7 @@ Review.create(
   landmark: landmark2,
   user: user3,
   votes: "6",
-  landmark_review: "3"
+  landmark_rating: "3"
 )
 
 Review.create(
@@ -188,7 +188,7 @@ Review.create(
   landmark: landmark6,
   user: user5,
   votes: "81",
-  landmark_review: "4"
+  landmark_rating: "4"
 )
 
 Review.create(
@@ -196,7 +196,7 @@ Review.create(
   landmark: landmark3,
   user: user1,
   votes: "4",
-  landmark_review: "2"
+  landmark_rating: "2"
 )
 
 Review.create(
@@ -204,7 +204,7 @@ Review.create(
   landmark: landmark3,
   user: user1,
   votes: "40",
-  landmark_review: "3"
+  landmark_rating: "3"
 )
 
 Review.create(
@@ -212,7 +212,7 @@ Review.create(
   landmark: landmark3,
   user: user1,
   votes: "-10",
-  landmark_review: "1"
+  landmark_rating: "1"
 )
 
 Review.create(
@@ -220,5 +220,5 @@ Review.create(
   landmark: landmark3,
   user: user1,
   votes: "5",
-  landmark_review: "5"
+  landmark_rating: "5"
 )

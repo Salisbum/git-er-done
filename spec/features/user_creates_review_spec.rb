@@ -58,7 +58,7 @@ feature "user creates a new review" do
 
   scenario "user adds new review and landmark average review is updated" do
     user = FactoryGirl.create(:user)
-    landmark = FactoryGirl.create(:landmark, user: user, average_review: "0")
+    landmark = FactoryGirl.create(:landmark, user: user)
 
     user_login
 
@@ -80,6 +80,6 @@ feature "user creates a new review" do
     choose ('3')
     click_on "Submit"
 
-    expect(page).to have_content("Average Review: 4")
+    expect(page).to have_content("Average Rating: 4")
   end
 end

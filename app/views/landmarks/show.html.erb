@@ -3,7 +3,12 @@ Creator: <%= @landmark.user.email %>
 <%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
 Location: <%= @landmark.location %>
 Description: <%= @landmark.description %>
-Average Review: <%= @landmark.average_review %>
+Average Rating:
+<% if @average_rating.nil? %>
+0
+<% else %>
+<%= @average_rating.floor %>
+<% end %>
 
 <%= render '/reviews/form' %>
 
@@ -15,7 +20,7 @@ Average Review: <%= @landmark.average_review %>
         Votes: <%= review.votes %>
         Comment: <%= review.body %>
         User: <%= review.user.email %>
-        Landmark Rating: <%= review.landmark_review %>
+        Landmark Rating: <%= review.landmark_rating %>
         <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
         <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
         </div>

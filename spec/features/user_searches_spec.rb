@@ -4,6 +4,7 @@ feature "User searches for a landmark" do
   let!(:user) { FactoryGirl.create(:user) }
 
   before(:each) do
+    user_login
     @statue_of_liberty = FactoryGirl.create(:landmark, user: user)
     @grand_canyon = FactoryGirl.create(:landmark, user: user, name: "Grand Canyon")
   end

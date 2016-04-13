@@ -3,9 +3,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :landmarks do
-    resources :reviews
-  end
+  authenticate :user do
+    resources :landmarks do
+      resources :reviews
+    end
 
-  resources :profiles
+    resources :profiles
+  end
 end

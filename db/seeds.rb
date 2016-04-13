@@ -127,7 +127,7 @@ landmark6 = Landmark.create(
   user: user2
 )
 
-landmark7 = Landmark.create(
+Landmark.create(
   name: "Statue of Liberty",
   location: "NY, NY",
   image: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Statue_of_Liberty_7.jpg",

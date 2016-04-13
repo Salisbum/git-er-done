@@ -11,20 +11,4 @@ class Landmark < ActiveRecord::Base
   def self.search(search)
     where("name ILIKE ?", "%#{search}%")
   end
-
-#   def average_rating
-#     reviews = self.reviews
-#     sum = 0
-#     number = reviews.count
-#
-#     reviews.each do |review|
-#       sum += review.landmark_review.to_i
-#     end
-#     if sum != 0
-#       average = sum / number
-#       average.to_s
-#     else
-#       "0"
-#     end
-#   end
 end

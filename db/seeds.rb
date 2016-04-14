@@ -1,3 +1,9 @@
+user_admin = User.create(
+  email: "admin@gmail.com",
+  password: "12345678",
+  role: "admin"
+)
+
 user1 = User.create(
   email: "email@gmail.com",
   password: "12345678"
@@ -24,6 +30,22 @@ user5 = User.create(
 )
 
 Profile.create(
+  username: "admin",
+  location: "Boston, MA",
+  avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
+  pun: "Isn't this punny?!",
+  user: user_admin
+)
+
+Profile.create(
+  username: "herpderp1",
+  location: "Boston, MA",
+  avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
+  pun: "Isn't this punny?!",
+  user: user1
+)
+
+Profile.create(
   username: "herpderp2",
   location: "Boston, MA",
   avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
@@ -45,14 +67,6 @@ Profile.create(
   avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
   pun: "Isn't this punny?!",
   user: user4
-)
-
-Profile.create(
-  username: "herpderp1",
-  location: "Boston, MA",
-  avatar_url: "https://s-media-cache-ak0.pinimg.com/236x/50/bb/11/50bb1149e480e46d721d8a813a8ef3d4.jpg",
-  pun: "Isn't this punny?!",
-  user: user1
 )
 
 Profile.create(

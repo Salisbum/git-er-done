@@ -14,6 +14,9 @@ Average Rating:
 <% else %>
 <%= @average_rating.floor %><br>
 <% end %>
+<%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
+<%= @landmark.location %>
+<%= @landmark.description %>
 
 <%= render '/reviews/form' %>
 
@@ -21,26 +24,28 @@ Average Rating:
     <% if !@reviews.empty? %>
       <% @reviews.each do |review| %>
       <li>
-        <div class="review">
-          Review: <%= review.body %><br>
-          <% if review.user.nil? %>
-            User: [DELETED]<br>
-          <% else %>
-            User: <%= review.user.email %><br>
-          <% end %>
-          Landmark Rating: <%= review.landmark_rating %><br>
-          <div id="vote-div">
-            <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
-            <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
-            <div class= 'vote-total'>
-              <%= @vote_total[review.id] %>
-            </div>
+        <div class=review>
+        Comment: <%= review.body %>
+        <% if review.user.nil? %>
+          User: [DELETED]
+        <% else %>
+          User: <%= review.user.email %>
+        <% end %>
+        Landmark Rating: <%= review.landmark_rating %><br>
+        <div id="vote-div">
+          <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
+          <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
+          <div class= 'vote-total'>
+            <%= @vote_total[review.id] %>
           </div>
-          <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
-          <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
+        </div>
+        <% if current_user == review.user || current_user.admin? %>
+        <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
+        <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
+        <% end %>
         </div>
       </li>
-      <% end %>
+    <% end %>
   <% else %>
     No reviews! Want to leave one?
   <% end %>

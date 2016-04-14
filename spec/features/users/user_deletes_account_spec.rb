@@ -10,24 +10,17 @@ feature "User deletes account" do
 
   scenario 'user deletes their own account, expects all reviews to be deleted' do
     pyramid = FactoryGirl.create(:landmark, user: user)
-
     review = FactoryGirl.create(:review, landmark: pyramid, user: user)
 
-    visit root_path
-
-    click_on 'Login'
-
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-
-    click_on 'Log in'
+    login(user)
 
     visit landmark_path(pyramid)
     expect(page).to have_content review.body
 
     click_on 'Edit registration'
     click_on 'Cancel my account'
-    expect(page).to have_content('Sign Up')
+
+    expect(page).to have_content('Bye! Your account has been successfully cancelled. We hope to see you again soon')
 
     admin_login
 
@@ -39,9 +32,13 @@ feature "User deletes account" do
 
   scenario 'user attempts to log in with deleted account' do
     user_login
+
     click_on 'Edit registration'
+
     click_on 'Cancel my account'
+
     click_on 'Login'
+
     fill_in 'Email', with: 'herpderp@gmail.com'
     fill_in 'Password', with: '12345678'
     click_on 'Log in'

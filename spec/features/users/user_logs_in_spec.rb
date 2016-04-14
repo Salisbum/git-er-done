@@ -3,18 +3,12 @@ feature "User logs in" do
   let!(:user) { FactoryGirl.create(:user) }
 
   scenario 'user navigates to log in page' do
-    visit '/'
+    visit root_path
     expect(page).to have_content('Login')
   end
   scenario 'user successfully logs in' do
-    visit '/'
-    click_link 'Login'
-
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-
-    click_on "Log in"
-
+    login(user)
+    
     expect(page).to have_content("Logout")
     expect(page).to_not have_content("Login")
     expect(page).to have_content("LANDSNARKR")

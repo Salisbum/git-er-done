@@ -3,10 +3,10 @@ require 'rails_helper'
 feature "User edits an existing landmark" do
 
   scenario "User successfully edits a landmark" do
-    user_login
     user = FactoryGirl.create(:user)
     landmark = FactoryGirl.create(:landmark, user: user)
-
+    login(user)
+    
     visit landmarks_path
 
     click_button "Edit"
@@ -29,9 +29,9 @@ feature "User edits an existing landmark" do
   end
 
   scenario "User unsuccessfully edits a landmark" do
-    user_login
     user = FactoryGirl.create(:user)
     landmark = FactoryGirl.create(:landmark, user: user)
+    login(user)
 
     visit landmarks_path
 

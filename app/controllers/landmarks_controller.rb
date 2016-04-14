@@ -8,8 +8,7 @@ class LandmarksController < ApplicationController
   end
 
   def show
-    @landmark = Landmark.find(params[:id])
-    @reviews = @landmark.reviews
+    landmark
     @review = Review.new
     @vote_total = Vote.group(:review_id).sum(:vote)
     @average_rating = @landmark.reviews.average(:landmark_rating)
@@ -37,27 +36,41 @@ class LandmarksController < ApplicationController
   end
 
   def update
-    @landmark = Landmark.find(params[:id])
-    if @landmark.update(landmark_params)
-      flash[:notice] = "Landmark updated successfully!"
-      redirect_to landmark_path(@landmark)
+    landmark
+    if current_user == @landmark.user || current_user.admin?
+      if @landmark.update(landmark_params)
+        flash[:notice] = "Landmark updated successfully!"
+        redirect_to landmark_path(@landmark)
+      else
+        flash[:error] = "Update unsucessful. No changes were made."
+        redirect_to edit_landmark_path(@landmark)
+      end
     else
-      flash[:error] = "Update unsucessful. No changes were made."
-      redirect_to edit_landmark_path(@landmark)
+      flash[:notice] = "You cannot edit this landmark."
+      redirect_to landmark_path(@landmark)
     end
   end
 
   def destroy
-    @landmark = Landmark.find(params[:id])
-    if @landmark.destroy
-      flash[:notice] = "Landmark Deleted Successfully"
+    landmark
+    if current_user == @landmark.user || current_user.admin?
+      if @landmark.destroy
+        flash[:notice] = "Landmark Deleted Successfully"
+      end
+      redirect_to landmarks_path
+    else
+      flash[:notice] = "You cannot delete this landmark."
+      redirect_to landmark_path(@landmark)
     end
-    redirect_to landmarks_path
   end
 
   private
 
   def landmark_params
     params.require(:landmark).permit(:name, :location, :image, :description)
+  end
+
+  def landmark
+    @landmark ||= Landmark.find(params[:id])
   end
 end

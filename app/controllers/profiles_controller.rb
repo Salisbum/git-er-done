@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
     else
       flash[:error] = "Account Not Deleted"
     end
-    render :index
+    redirect_to profiles_path
   end
 
   def edit

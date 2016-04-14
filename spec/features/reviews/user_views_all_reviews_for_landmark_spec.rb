@@ -26,7 +26,6 @@ feature "user views all reviews on a landmark" do
     expect(page).to have_content ("Average Rating: 3")
     expect(page).to have_content review1.body
     expect(page).to have_content review2.user.email
-    expect(page).to have_content review3.votes
   end
   scenario "user views landmark with no reviews" do
     landmark = FactoryGirl.create(:landmark, user: user)

@@ -1,5 +1,5 @@
 <%= form_for [@landmark, @review] do |f| %>
-  <%= f.label :body, "Review" %>:
+  <%= f.label :body, "Review: " %>
   <%= f.text_area :body %>
   <%= f.radio_button :landmark_rating, 1 %>
   <%= f.label :landmark_rating, value: '1' %>

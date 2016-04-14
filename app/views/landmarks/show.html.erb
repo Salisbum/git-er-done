@@ -1,18 +1,15 @@
 <h3><%= @landmark.name %></h3>
 Creator:
 <% if @landmark.user.nil? %>
-[DELETED]
+User: [DELETED]
 <% else %>
-<%= @landmark.user.email %>
+<%= @landmark.user.email %><br>
 <% end %>
-<%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
-Location: <%= @landmark.location %>
-Description: <%= @landmark.description %>
 Average Rating:
 <% if @average_rating.nil? %>
-0
+0<br>
 <% else %>
-<%= @average_rating.floor %>
+<%= @average_rating.floor %><br>
 <% end %>
 <%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
 <%= @landmark.location %>
@@ -25,13 +22,20 @@ Average Rating:
       <% @reviews.each do |review| %>
       <li>
         <div class=review>
-        Votes: <%= review.votes %>
         Comment: <%= review.body %>
         <% if review.user.nil? %>
-            [DELETED]
+          User: [DELETED]
         <% else %>
           User: <%= review.user.email %>
         <% end %>
+        Landmark Rating: <%= review.landmark_rating %><br>
+        <div id="vote-div">
+          <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
+          <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
+          <div class= 'vote-total'>
+            <%= @vote_total[review.id] %>
+          </div>
+        </div>
         <% if current_user == review.user || current_user.admin? %>
         <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
         <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>

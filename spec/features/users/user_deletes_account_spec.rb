@@ -15,7 +15,6 @@ feature "User deletes account" do
     login(user)
 
     visit landmark_path(pyramid)
-
     expect(page).to have_content review.body
 
     click_on 'Edit registration'
@@ -23,7 +22,7 @@ feature "User deletes account" do
 
     expect(page).to have_content('Bye! Your account has been successfully cancelled. We hope to see you again soon')
 
-    user_login
+    admin_login
 
     visit landmark_path(pyramid)
 

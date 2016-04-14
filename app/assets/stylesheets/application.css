@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+
+#paginate *{
+  display: inline;
+}
+
+.nav-content *{
+  text-align: left;
+  display: inline;
+  margin: 0 auto;
+  width: 200px;
+}
+/*big*/
+.nav-bar *{
+  background-color: lightblue;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+
+}
+
+.main-title h1 {
+  font-family: 'Lato';
+  font-size: 100pt;
+  font-style: italic;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.main-title img{
+  padding-left: 35%;
+}

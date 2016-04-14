@@ -10,8 +10,9 @@ class LandmarksController < ApplicationController
   def show
     landmark
     @review = Review.new
+    @vote_total = Vote.group(:review_id).sum(:vote)
     @average_rating = @landmark.reviews.average(:landmark_rating)
-    @reviews = @landmark.reviews.order(votes: :asc)
+    @reviews = @landmark.reviews
   end
 
   def new

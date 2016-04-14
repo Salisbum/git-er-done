@@ -16,9 +16,8 @@ FactoryGirl.define do
   end
 
   factory :review do
-    body "This place was so dope"
+    sequence(:body) { |n| "#{n}This place was so dope" }
     landmark
-    sequence(:votes) { |n| "#{n}" }
     landmark_rating "3"
     user
   end

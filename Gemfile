@@ -14,6 +14,7 @@ gem 'faker'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'pry'
@@ -23,6 +24,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'orderly'
+  gem 'poltergeist'
   gem 'database_cleaner'
 end
 

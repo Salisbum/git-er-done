@@ -7,7 +7,16 @@ Rails.application.routes.draw do
     resources :landmarks do
       resources :reviews
     end
+  end
 
-    resources :profiles
+  resources :profiles
+
+  resources :reviews do
+    resources :votes do
+      collection do
+        post 'upvote'
+        post 'downvote'
+      end
+    end
   end
 end

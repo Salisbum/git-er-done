@@ -3,8 +3,10 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.landmark = landmark
     @review.user = current_user
+    @user = landmark.user
 
     if @review.save
+      UserMailer.new_review_notification_email(@user, landmark, @review).deliver
       flash[:notice] = 'Review successfully submitted!'
     else
       flash[:error] = "Review was not saved! #{@review.errors.full_messages.join ', '}."

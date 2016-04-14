@@ -17,6 +17,7 @@ gem 'mini_magick', '~> 4.3'
 gem 'foundation-rails'
 
 group :development, :test do
+  gem 'figaro'
   gem 'pry'
   gem 'byebug'
   gem 'rspec-rails'

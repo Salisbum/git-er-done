@@ -9,8 +9,8 @@ class LandmarksController < ApplicationController
 
   def show
     @landmark = Landmark.find(params[:id])
-    @review = Review.new
     @reviews = @landmark.reviews
+    @review = Review.new
     @vote_total = Vote.group(:review_id).sum(:vote)
   end
 

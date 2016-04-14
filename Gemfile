@@ -24,6 +24,7 @@ group :development, :test do
   gem 'launchy'
   gem 'factory_girl_rails'
   gem 'orderly'
+  gem 'selenium-webdriver'
 end
 
 group :test do

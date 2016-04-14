@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carrierwave', '~> 0.10.0'
 gem 'mini_magick', '~> 4.3'
 gem 'foundation-rails'
+gem 'fog'
 
 group :development, :test do
   gem 'pry'
@@ -26,6 +27,7 @@ group :development, :test do
   gem 'orderly'
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem "dotenv-rails"
 end
 
 group :test do

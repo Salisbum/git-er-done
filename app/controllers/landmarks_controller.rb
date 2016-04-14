@@ -12,6 +12,8 @@ class LandmarksController < ApplicationController
     @reviews = @landmark.reviews
     @review = Review.new
     @vote_total = Vote.group(:review_id).sum(:vote)
+    @average_rating = @landmark.reviews.average(:landmark_rating)
+    @reviews = @landmark.reviews
   end
 
   def new

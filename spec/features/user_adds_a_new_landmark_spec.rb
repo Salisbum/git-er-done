@@ -22,21 +22,22 @@ feature "User visits new landmark path" do
     fill_in 'Description', with: landmark.description
 
     click_button "Submit Landmark"
-
     expect(page).to have_content "Landmark added successfully!"
     expect(page).to have_content landmark.name
     expect(page).to have_content landmark.location
+    expect(page).to have_content ("Average Rating: 0")
     page.should have_selector ("img[src$='#{landmark.image}']")
     expect(page).to have_content landmark.description
   end
 
   scenario "visitor does not provide proper information for a landmark" do
-      visit new_landmark_path
+    user_login
+    visit new_landmark_path
 
-      click_button "Submit Landmark"
-      expect(page).to have_content "Name can't be blank"
-      expect(page).to have_content "Location can't be blank"
-      expect(page).to have_content "Image can't be blank"
-      expect(page).to have_content "Description can't be blank"
-    end
+    click_button "Submit Landmark"
+    expect(page).to have_content "Name can't be blank"
+    expect(page).to have_content "Location can't be blank"
+    expect(page).to have_content "Image can't be blank"
+    expect(page).to have_content "Description can't be blank"
+  end
 end

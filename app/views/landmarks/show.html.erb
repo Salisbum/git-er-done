@@ -1,9 +1,19 @@
 <h3><%= @landmark.name %></h3>
-<%= @landmark.user.email %>
-<%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
-<%= @landmark.location %>
-<%= @landmark.description %>
-
+Creator:
+<% if @landmark.user.nil? %>
+[DELETED]
+<% else %>
+<%= @landmark.user.email %><br>
+<% end %>
+<%= image_tag("#{@landmark.image}", height: '250', width: '250') %><br>
+Location: <%= @landmark.location %><br>
+Description: <%= @landmark.description %><br>
+Average Rating:
+<% if @average_rating.nil? %>
+0<br>
+<% else %>
+<%= @average_rating.floor %><br>
+<% end %>
 
 <%= render '/reviews/form' %>
 
@@ -12,8 +22,13 @@
       <% @reviews.each do |review| %>
       <li>
         <div class="review">
-          <%= review.body %>
-          <%= review.user.email %>
+          Review: <%= review.body %><br>
+          <% if review.user.nil? %>
+            User: [DELETED]<br>
+          <% else %>
+            User: <%= review.user.email %><br>
+          <% end %>
+          Landmark Rating: <%= review.landmark_rating %><br>
           <div id="vote-div">
             <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
             <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
@@ -26,6 +41,6 @@
         </div>
       </li>
       <% end %>
-    <% else %>
-      No reviews! Want to leave one?
-    <% end %>
+  <% else %>
+    No reviews! Want to leave one?
+  <% end %>

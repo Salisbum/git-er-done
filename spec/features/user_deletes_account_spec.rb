@@ -1,18 +1,42 @@
 require 'rails_helper'
 feature "User deletes account" do
+  let!(:user) { FactoryGirl.create(:user) }
   scenario 'user navigates to edit account page' do
     user_login
     click_on 'Edit registration'
 
     expect(page).to have_content('Cancel my account')
   end
-  scenario 'user deletes account' do
-    user_login
+
+  scenario 'user deletes their own account, expects all reviews to be deleted' do
+    pyramid = FactoryGirl.create(:landmark, user: user)
+
+    review = FactoryGirl.create(:review, landmark: pyramid, user: user)
+
+    visit root_path
+
+    click_on 'Login'
+
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+
+    click_on 'Log in'
+
+    visit landmark_path(pyramid)
+    expect(page).to have_content review.body
+
     click_on 'Edit registration'
     click_on 'Cancel my account'
-
     expect(page).to have_content('Sign Up')
+
+    admin_login
+
+    visit landmark_path(pyramid)
+
+    expect(page).to have_content("No reviews! Want to leave one?")
+    expect(page).to_not have_content review.body
   end
+
   scenario 'user attempts to log in with deleted account' do
     user_login
     click_on 'Edit registration'

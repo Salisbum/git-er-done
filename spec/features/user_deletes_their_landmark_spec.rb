@@ -2,6 +2,7 @@ require 'rails_helper'
 
 feature "User deletes their landmark" do
   scenario "user successfully deletes a landmark" do
+    user_login
     user = FactoryGirl.create(:user)
     landmark = FactoryGirl.create(:landmark, user: user)
 

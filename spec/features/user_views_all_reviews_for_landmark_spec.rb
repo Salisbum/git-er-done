@@ -23,6 +23,7 @@ feature "user views all reviews on a landmark" do
     click_link landmark.name
 
     expect(page).to have_content landmark.name
+    expect(page).to have_content ("Average Rating: 3")
     expect(page).to have_content review1.body
     expect(page).to have_content review2.user.email
   end
@@ -36,6 +37,7 @@ feature "user views all reviews on a landmark" do
     click_link landmark.name
 
     expect(page).to have_content landmark.name
+    expect(page).to have_content ("Average Rating: 0")
     expect(page).to have_content("No reviews! Want to leave one?")
   end
 end

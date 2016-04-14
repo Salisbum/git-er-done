@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :landmarks do
-    resources :reviews
+  authenticate :user do
+    resources :landmarks do
+      resources :reviews
+    end
   end
 
   resources :profiles

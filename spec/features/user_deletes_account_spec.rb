@@ -32,12 +32,14 @@ feature "User deletes account" do
 
     expect(page).to have_content('Sign Up')
 
+    user_login
+
     visit landmark_path(pyramid)
 
     expect(page).to have_content("No reviews! Want to leave one?")
     expect(page).to_not have_content review.body
   end
-  
+
   scenario 'user attempts to log in with deleted account' do
     user_login
     click_on 'Edit registration'

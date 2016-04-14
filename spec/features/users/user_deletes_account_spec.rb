@@ -25,6 +25,8 @@ feature "User deletes account" do
 
     user_login
 
+    user_login
+
     visit landmark_path(pyramid)
 
     expect(page).to have_content("No reviews! Want to leave one?")

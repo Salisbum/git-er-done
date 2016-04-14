@@ -26,9 +26,6 @@ $(function(){ $(document).foundation();
       success: function(response) {
         voteTotal.text(response);
       },
-      error: function(){
-        alert('You must be signed in');
-      }
     });
   });
   $('.downvote').on('click', function(event) {
@@ -42,9 +39,6 @@ $(function(){ $(document).foundation();
       success: function(response) {
         voteTotal.text(response);
       },
-      error: function() {
-        alert('You must be signed in');
-      }
     });
   });
 });

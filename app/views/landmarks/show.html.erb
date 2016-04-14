@@ -1,13 +1,10 @@
 <h3><%= @landmark.name %></h3>
 Creator:
 <% if @landmark.user.nil? %>
-[DELETED]
+User: [DELETED]
 <% else %>
 <%= @landmark.user.email %><br>
 <% end %>
-<%= image_tag("#{@landmark.image}", height: '250', width: '250') %><br>
-Location: <%= @landmark.location %><br>
-Description: <%= @landmark.description %><br>
 Average Rating:
 <% if @average_rating.nil? %>
 0<br>

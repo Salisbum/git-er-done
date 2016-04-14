@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Review do
   let(:user) do
     User.new(
-    email: "derpson@email.com",
-    password: "12345678"
+      email: "derpson@email.com",
+      password: "12345678"
     )
   end
 

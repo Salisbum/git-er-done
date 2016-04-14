@@ -11,10 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
-
+.env
 /config/database.yml
 /config/secret_token.rb
-.env
 /coverage
 
 .DS_Store

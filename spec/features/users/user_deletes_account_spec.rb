@@ -25,8 +25,6 @@ feature "User deletes account" do
 
     user_login
 
-    user_login
-
     visit landmark_path(pyramid)
 
     expect(page).to have_content("No reviews! Want to leave one?")
@@ -41,7 +39,7 @@ feature "User deletes account" do
     click_on 'Cancel my account'
 
     click_on 'Login'
-    
+
     fill_in 'Email', with: 'herpderp@gmail.com'
     fill_in 'Password', with: '12345678'
     click_on 'Log in'

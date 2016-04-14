@@ -11,6 +11,7 @@ feature "User deletes account" do
   scenario 'user deletes their own account, expects all reviews to be deleted' do
     pyramid = FactoryGirl.create(:landmark, user: user)
     review = FactoryGirl.create(:review, landmark: pyramid, user: user)
+
     login(user)
 
     visit landmark_path(pyramid)
@@ -20,13 +21,11 @@ feature "User deletes account" do
     click_on 'Edit registration'
     click_on 'Cancel my account'
 
-    expect(page).to have_content('Sign Up')
+    expect(page).to have_content('Bye! Your account has been successfully cancelled. We hope to see you again soon')
 
     user_login
 
     visit landmark_path(pyramid)
-
-    user_login
 
     expect(page).to have_content("No reviews! Want to leave one?")
     expect(page).to_not have_content review.body

@@ -22,6 +22,8 @@ feature "User deletes account" do
 
     expect(page).to have_content('Sign Up')
 
+    user_login
+
     visit landmark_path(pyramid)
 
     user_login

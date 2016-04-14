@@ -9,10 +9,7 @@ feature "user sees a list of landmarks" do
     visit landmarks_path
 
     expect(page).to have_content("Eiffel", count: 5)
-
-    click_on "Next"
-
-    expect(page).to have_content landmarks[-2].name
-    expect(landmarks[-2].name).to appear_before(landmarks.last.name)
+    expect(page).to have_content landmarks[2].name
+    expect(landmarks[2].name).to appear_before(landmarks[3].name)
   end
 end

@@ -41,6 +41,12 @@
       </li>
     <% end %>
 
+    <% if user_signed_in? %>
+      <li>
+      You are signed in as: <%= current_user.email %>
+      </li>
+    <% end %>
+
     <div class="container">
       <%= render 'layouts/messages' %>
       <%= yield %>

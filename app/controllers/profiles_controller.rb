@@ -13,13 +13,15 @@ class ProfilesController < ApplicationController
   def destroy
     profile = Profile.find(params[:id])
     user = profile.user
+    reviews = user.reviews
 
     if profile.destroy && user.destroy
+      reviews.each { |review| review.destroy }
       flash[:notice] = "Account Deleted Successfully!"
     else
       flash[:error] = "Account Not Deleted"
     end
-    render :index
+    redirect_to profiles_path
   end
 
   def edit

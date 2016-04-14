@@ -14,6 +14,9 @@ Average Rating:
 <% else %>
 <%= @average_rating.floor %>
 <% end %>
+<%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
+<%= @landmark.location %>
+<%= @landmark.description %>
 
 <%= render '/reviews/form' %>
 
@@ -24,13 +27,18 @@ Average Rating:
         <div class=review>
         Votes: <%= review.votes %>
         Comment: <%= review.body %>
-        User: <%= review.user.email %>
-        Landmark Rating: <%= review.landmark_rating %>
+        <% if review.user.nil? %>
+            [DELETED]
+        <% else %>
+          User: <%= review.user.email %>
+        <% end %>
+        <% if current_user == review.user || current_user.admin? %>
         <%= button_to "Delete Review", landmark_review_path(review.landmark.id, review.id), class:"button", method:"delete" %>
         <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
+        <% end %>
         </div>
       </li>
-      <% end %>
+    <% end %>
   <% else %>
     No reviews! Want to leave one?
   <% end %>

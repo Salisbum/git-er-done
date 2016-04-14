@@ -1,8 +1,13 @@
 require 'rails_helper'
 feature "User deletes account" do
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:profile) { FactoryGirl.create(:profile, user: user) }
+
   scenario 'user navigates to edit account page' do
     user_login
+
+    visit profile_path(profile)
+
     click_on 'Edit registration'
 
     expect(page).to have_content('Cancel my account')
@@ -16,6 +21,8 @@ feature "User deletes account" do
 
     visit landmark_path(pyramid)
     expect(page).to have_content review.body
+
+    visit profile_path(profile)
 
     click_on 'Edit registration'
     click_on 'Cancel my account'
@@ -32,6 +39,8 @@ feature "User deletes account" do
 
   scenario 'user attempts to log in with deleted account' do
     user_login
+
+    visit profile_path(profile)
 
     click_on 'Edit registration'
 

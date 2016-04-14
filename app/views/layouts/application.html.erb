@@ -21,17 +21,11 @@
 
       <% if user_signed_in? %>
       <li>
-        <%= link_to('Edit registration', edit_user_registration_path) %>
+        <%= link_to('Profile', profile_path(current_user.id)) %>
       </li>
       <% else %>
       <li>
         <%= link_to('Sign Up', new_user_registration_path)  %>
-      </li>
-      <% end %>
-
-      <% if user_signed_in? %>
-      <li>
-        <%= link_to('Edit Profile', edit_profile_path(current_user.id)) %>
       </li>
       <% end %>
 

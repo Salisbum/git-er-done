@@ -101,6 +101,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.6.3)
       i18n (~> 0.5)
+    figaro (1.1.1)
+      thor (~> 0.14)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     fog (1.38.0)
@@ -409,6 +411,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   faker
+  figaro
   fog
   foundation-rails
   jbuilder (~> 2.0)

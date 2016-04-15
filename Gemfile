@@ -18,6 +18,7 @@ gem 'foundation-rails'
 gem 'fog'
 
 group :development, :test do
+  gem 'figaro'
   gem 'pry'
   gem 'byebug'
   gem 'rspec-rails'

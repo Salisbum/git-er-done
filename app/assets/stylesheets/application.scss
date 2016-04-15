@@ -2,13 +2,19 @@
   width:125px;
 }
 
+.color-white{
+  color: #efefef;
+}
+
+a:hover {
+  color: #6c5f5b;
+}
 
 .search_bar *{
   width: 200px;
   height: 30px;
   display: inline;
   vertical-align: middle;
-
 }
 
 .profile_options *{

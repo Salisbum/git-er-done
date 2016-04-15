@@ -18,7 +18,7 @@ feature "User visits users index" do
 
     expect(page).to have_content user1.email
 
-    click_on "Delete"
+    page.all('.button_to')[0].click_button "Delete"
 
     expect(page).to_not have_content user1.email
     expect(page).to have_content "Account Deleted Successfully!"

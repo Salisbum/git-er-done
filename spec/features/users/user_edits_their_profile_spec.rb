@@ -16,7 +16,7 @@ feature "user edits their profile" do
 
     click_link "Edit Profile"
 
-    expect(page).to have_content "Edit Profile"
+    expect(page).to have_content("Edit Profile")
 
     fill_in "Username", with: "BillyBob"
     fill_in "Location", with: "France"

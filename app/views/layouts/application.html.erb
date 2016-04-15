@@ -55,6 +55,9 @@
           <li>
             <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
           </li>
+          <li>
+            You are logged in as: <%= current_user.profile.username %>
+          </li>
         <% else %>
           <li>
             <%= link_to('Login', new_user_session_path)  %>

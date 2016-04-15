@@ -1,13 +1,13 @@
-<div class="row">
-
-<h1>Search</h1>
-<%= form_tag landmarks_path, method: "get" do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Landmarks" %>
-  <%= submit_tag "Search", name: nil %>
-<% end %>
-
 <%= link_to('New Landmark', new_landmark_path)  %>
 
+<div class="search_bar">
+  <%= form_tag landmarks_path, method: "get" do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Landmarks" %>
+    <%= submit_tag "Search", name: nil, class: "button"%>
+  <% end %>
+</div>
+
+<div class="row">
 <% if @landmarks.present? %>
   <table>
     <thead>
@@ -42,7 +42,9 @@
 <% else %>
   <p>There are no landmarks containing the term(s) <%= params[:search] %>.</p>
 <% end %>
-<div id="paginate">
-<%= paginate @landmarks %>
 </div>
+<div id="paginate">
+  <div class="kaminari">
+    <%= paginate @landmarks %>
+  </div>
 </div>

@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20160413191053) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.text    "body",        null: false
-    t.integer "landmark_id", null: false
-    t.integer "user_id",     null: false
+    t.text    "body",                        null: false
+    t.integer "landmark_id",                 null: false
+    t.integer "user_id",                     null: false
     t.integer "landmark_rating", default: 0
   end
 

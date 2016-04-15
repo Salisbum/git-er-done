@@ -1,12 +1,17 @@
 require 'rails_helper'
 feature "User edits account" do
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:profile) { FactoryGirl.create(:profile, user: user) }
+
   scenario 'user navigates to edit account page' do
-    user_login
+    login(user)
+    visit profile_path(profile)
     click_on 'Edit registration'
     expect(page).to have_content('Edit User')
   end
   scenario 'user edits account with correct data' do
-    user_login
+    login(user)
+    visit profile_path(profile)
     click_on 'Edit registration'
     fill_in 'Password', with: '11111111'
     fill_in 'Password confirmation', with: '11111111'
@@ -16,7 +21,8 @@ feature "User edits account" do
     expect(page).to have_content('Logout')
   end
   scenario 'user edits account with bad data' do
-    user_login
+    login(user)
+    visit profile_path(profile)
     click_on 'Edit registration'
     fill_in 'Password', with: '11111111'
     fill_in 'Password confirmation', with: '11'

@@ -1,34 +1,45 @@
-<h3><%= @landmark.name %></h3>
-Creator:
-<% if @landmark.user.nil? %>
-User: [DELETED]
-<% else %>
-<%= @landmark.user.email %><br>
-<% end %>
-Average Rating:
-<% if @average_rating.nil? %>
-0<br>
-<% else %>
-<%= @average_rating.floor %><br>
-<% end %>
-<%= image_tag("#{@landmark.image}", height: '250', width: '250') %>
-<%= @landmark.location %>
-<%= @landmark.description %>
+<div class="landmark_info">
+  <h3><%= @landmark.name %></h3>
+  <div class="landmark_details">
+    Creator:
+    <% if @landmark.user.nil? %>
+    User: [DELETED]
+    <% else %>
+    <%= @landmark.user.email %><br>
+    <% end %>
+    Average Rating:
+    <% if @average_rating.nil? %>
+    0<br>
+    <% else %>
+    <%= @average_rating.floor %><br>
+    <% end %>
+    <%= image_tag("#{@landmark.image}", height: '250', width: '250') %><br>
+    Location: <%= @landmark.location %><br>
+    Description: <%= @landmark.description %>
+  </div>
+</div>
 
 <%= render '/reviews/form' %>
 
-<h2>Reviews:</h2>
+<h4>Reviews:</h4>
     <% if !@reviews.empty? %>
       <% @reviews.each do |review| %>
-      <li>
         <div class=review>
-        Comment: <%= review.body %>
+          <div class="row">
+            Comment: <%= review.body %>
+          </div>
         <% if review.user.nil? %>
+        <div class="row">
           User: [DELETED]
+        </div>
         <% else %>
+        <div class="row">
           User: <%= review.user.email %>
+        </div>
         <% end %>
+        <div class="row">
         Landmark Rating: <%= review.landmark_rating %><br>
+        </div>
         <div id="vote-div">
           <%= link_to "+1", upvote_review_votes_path(review), class: 'upvote' %>
           <%= link_to "-1", downvote_review_votes_path(review), class: 'downvote' %>
@@ -41,7 +52,6 @@ Average Rating:
         <%= link_to "Edit Review", edit_landmark_review_path(review.landmark.id, review.id) %>
         <% end %>
         </div>
-      </li>
     <% end %>
   <% else %>
     No reviews! Want to leave one?

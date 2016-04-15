@@ -1,3 +1,41 @@
-.nav-logo{
+.nav-logo {
   width:125px;
+}
+
+.search_bar *{
+  width: 200px;
+  height: 30px;
+  display: inline;
+  vertical-align: middle;
+
+}
+
+.profile_options *{
+  display: inline;
+}
+​
+.profile_options {
+  padding-top: 10px;
+}
+​
+.title h3{
+  text-align: center;
+  padding-left: 25%;
+}
+​
+.edit_profile {
+  padding-left: 3%;
+  padding-right: 2%;
+}
+
+.container *{
+  padding: 10px;
+}
+
+#paginate *{
+  display: inline;
+}
+
+.kaminari {
+  margin: 0 auto;
 }

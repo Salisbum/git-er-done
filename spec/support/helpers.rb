@@ -1,6 +1,7 @@
 def user_login
   user = FactoryGirl.create(:user)
-  visit root_path
+  FactoryGirl.create(:profile, user: user)
+  visit root_url
 
   click_on 'Login'
 
@@ -10,7 +11,8 @@ def user_login
 end
 
 def login(user)
-  visit root_path
+  FactoryGirl.create(:profile, user: user)
+  visit root_url
 
   click_on 'Login'
 
@@ -21,7 +23,9 @@ end
 
 def admin_login
   user = FactoryGirl.create(:user, role: "admin")
-  visit root_path
+  FactoryGirl.create(:profile, user: user)
+
+  visit root_url
 
   click_on 'Login'
 

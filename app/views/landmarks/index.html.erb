@@ -6,7 +6,9 @@
   <%= submit_tag "Search", name: nil %>
 <% end %>
 
-<%= link_to('New Landmark', new_landmark_path)  %>
+<div class="button">
+  <%= link_to('New Landmark', new_landmark_path)  %>
+</div>
 
 <% if @landmarks.present? %>
   <table>

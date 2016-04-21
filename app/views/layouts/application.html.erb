@@ -37,7 +37,7 @@
 
         <% if user_signed_in? %>
           <li>
-              <%= link_to('Profile', profile_path(current_user.id), class: "color-white") %>
+              <%= link_to('Profile', profile_path(current_user.profile.id), class: "color-white") %>
           </li>
         <% else %>
           <li>

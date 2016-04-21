@@ -6,8 +6,14 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
-    @user = @profile.user
+    profile = Profile.find(params[:id])
+    user = profile.user
+    unless current_user.admin? || current_user == user
+      redirect_to root_path
+    else
+      @profile = Profile.find(params[:id])
+      @user = @profile.user
+    end
   end
 
   def destroy
@@ -25,7 +31,13 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    profile = Profile.find(params[:id])
+    user = profile.user
+    unless current_user.admin? || current_user == user
+      redirect_to root_path
+    else
+      @profile = Profile.find(params[:id])
+    end
   end
 
   def update
@@ -52,7 +64,7 @@ class ProfilesController < ApplicationController
   end
 
   def authorize_user
-    if !user_signed_in? || !current_user.admin?
+    if !current_user.admin?
       redirect_to root_path
     end
   end
